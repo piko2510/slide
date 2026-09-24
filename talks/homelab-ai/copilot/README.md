@@ -1,76 +1,89 @@
-# Copilotで1枚ずつ生成するセット
+# Copilotで1枚ずつ生成するセット — Markdown詳細版
 
-**各スライドのフォルダに「貼り付けるプロンプト1つ＋添付するテキスト3つ」を揃えています。**
-対象はCopilot Chat Basicでの1枚ずつの生成です。
-完成したPowerPointではなく、生成を依頼するための入力一式です。
-更新日：2026-09-24。
+**各スライドのフォルダに「貼り付け用プロンプト1つ＋添付用Markdown3つ」を揃えています。全13枚分です。**
+
+利用者指定の前提は、Copilot Chat Basicの **5.6think**、添付は各回3ファイル、出力は編集可能な`.pptx`です。
+本セットはその運用に合わせた入力一式であり、完成したPowerPointではありません。
+モデルの名称・提供状況・性能・ファイル生成機能を本セットが保証するものではありません。
+更新日：2026-09-24。v2.0では旧`.txt`版をMarkdownへ置き換え、指示内容を詳細化しました。
 
 ## 使い方
 
-1. 下の一覧から対象スライドを開き、`00_style_guide.txt`、`01_talk_outline.txt`、`02_slide_brief.txt`の3ファイルを端末へ保存します。
-2. Copilotで対象の1枚用の新しいチャットを開き、この3ファイルだけを添付します。
-3. 同じフォルダの`prompt.txt`の中身をチャット欄に貼って送信します。**`prompt.txt`は添付しません。**
+1. 対象の `slide-01`〜`slide-13` を開き、`00_style_guide.md`、`01_talk_outline.md`、`02_slide_brief.md` の3ファイルを端末へ保存します。Webページやスクリーンショットではなく、Markdown本文のファイルを使います。
+2. Copilot側でご指定の5.6thinkを使用し、対象の1枚用のチャットに、この3ファイルだけを添付します。
+3. 同じフォルダの `prompt.md` の本文をチャット欄へ貼り付けて送信します。**`prompt.md`は添付しません。**
 
-受け取るファイル名は`homelab_ai_01.pptx`〜`homelab_ai_13.pptx`です。
-各ファイルに入るスライドは1枚だけです。
-最初は[第1枚](slide-01/)で見た目を確認し、残りも同じ手順で生成します。
-既存スライドや追加の画像を添付する必要はありません。
+プロンプト内にモデル切替APIや特別な設定コマンドを書く方式ではありません。
+前に生成したスライドや追加のテンプレートを添付する必要はなく、そのフォルダだけで完結します。
+最初は[第01枚](slide-01/)で見た目を確認し、続いて各ページを同じ手順で生成します。
 
-## 1枚分のフォルダの中身
+## 1枚分の中身
 
 ```text
 slide-01/
-├── prompt.txt             ← 本文をチャット欄へ貼る。添付しない
-├── 00_style_guide.txt     ← 添付1：白背景・Meiryo UIなど
-├── 01_talk_outline.txt    ← 添付2：全体の文脈。全13枚の生成指示ではない
-└── 02_slide_brief.txt     ← 添付3：この1枚の確定文言・図・配置
+├── prompt.md            # 本文をチャット欄へ貼る。添付しない
+├── 00_style_guide.md    # 添付1：共通デザイン・文字・図形・検査
+├── 01_talk_outline.md   # 添付2：全体文脈。全13枚の生成指示ではない
+└── 02_slide_brief.md    # 添付3：この1枚の文章・座標・接続・検収
 ```
 
-`00_style_guide.txt`と`01_talk_outline.txt`は全13フォルダで同じ内容です。
-別の場所から探して組み合わせなくても、そのスライドのフォルダだけで3添付が揃います。
-各専用指示書には、掲載する文言、図の箱と接続、配置、載せない内容、確認点を記載しています。
-テキストはUTF-8です。
+各フォルダにはこの4ファイルだけを置いています。
+共通2ファイルは13フォルダで同一内容です。差し替える専用指示書やプロンプトを取り違えないよう、使うページのフォルダ内で揃えてください。
+文字コードはUTF-8です。ファイル名だけを変更した版ではなく、見出し・表・チェック項目で構造化しています。
+
+## 詳細化した内容
+
+| 項目 | 今回の指定 |
+| --- | --- |
+| 掲載文言 | タイトル、箱見出し、本文、経路ラベル、結論、留保、ページ番号をID付きで確定 |
+| 初期配置 | オブジェクトのx・y・幅・高さをインチで指定 |
+| 文字 | Meiryo UI、階層別サイズ、自然な改行、最低サイズ、余白 |
+| 図 | 箱ごとの役割、接続元と接続先、矢印方向、線種、迂回経路、追加禁止の線 |
+| 内容の境界 | 制作用説明と掲載文章を分離。実績・権限・成功保証を推測で追加しない |
+| 収まらない場合 | 改行、ボックス、間隔、経路の順で調整。安易な縮小・削除・分割はしない |
+| 検収 | 各ページ固有の誤りと、ファイル構造・書式・描画を確認 |
+| 納品 | 実在する1枚の.pptxと短い確認結果。未確認は未確認と明示 |
+
+指示を詳しくした分を、そのままスライドの文字量へ転記しないよう指定しています。
+完成品は短い文章と読みやすい図、添付側は詳細な制作指示、という分担です。
 
 ## スライド別リンク
 
-各リンク先のファイル画面から内容を表示・保存できます。
-フォルダ名のリンクは、その1枚に必要な4ファイルの一覧です。
-
 | 枚・テーマ | 貼り付け用 | 添付1 | 添付2 | 添付3 |
 | --- | --- | --- | --- | --- |
-| [01 自宅AI環境の裏側](slide-01/) | [プロンプト](slide-01/prompt.txt) | [デザイン](slide-01/00_style_guide.txt) | [全体文脈](slide-01/01_talk_outline.txt) | [専用指示](slide-01/02_slide_brief.txt) |
-| [02 AIを使うための仕事を減らしたい](slide-02/) | [プロンプト](slide-02/prompt.txt) | [デザイン](slide-02/00_style_guide.txt) | [全体文脈](slide-02/01_talk_outline.txt) | [専用指示](slide-02/02_slide_brief.txt) |
-| [03 自宅の作業場とクラウド](slide-03/) | [プロンプト](slide-03/prompt.txt) | [デザイン](slide-03/00_style_guide.txt) | [全体文脈](slide-03/01_talk_outline.txt) | [専用指示](slide-03/02_slide_brief.txt) |
-| [04 依頼が結果になるまで](slide-04/) | [プロンプト](slide-04/prompt.txt) | [デザイン](slide-04/00_style_guide.txt) | [全体文脈](slide-04/01_talk_outline.txt) | [専用指示](slide-04/02_slide_brief.txt) |
-| [05 GitHubで要求と現在地を確かめる](slide-05/) | [プロンプト](slide-05/prompt.txt) | [デザイン](slide-05/00_style_guide.txt) | [全体文脈](slide-05/01_talk_outline.txt) | [専用指示](slide-05/02_slide_brief.txt) |
-| [06 ルール・手順・機械処理を分ける](slide-06/) | [プロンプト](slide-06/prompt.txt) | [デザイン](slide-06/00_style_guide.txt) | [全体文脈](slide-06/01_talk_outline.txt) | [専用指示](slide-06/02_slide_brief.txt) |
-| [07 コンテキスト基盤](slide-07/) | [プロンプト](slide-07/prompt.txt) | [デザイン](slide-07/00_style_guide.txt) | [全体文脈](slide-07/01_talk_outline.txt) | [専用指示](slide-07/02_slide_brief.txt) |
-| [08 Jevの情報選別](slide-08/) | [プロンプト](slide-08/prompt.txt) | [デザイン](slide-08/00_style_guide.txt) | [全体文脈](slide-08/01_talk_outline.txt) | [専用指示](slide-08/02_slide_brief.txt) |
-| [09 判断と実行の担当](slide-09/) | [プロンプト](slide-09/prompt.txt) | [デザイン](slide-09/00_style_guide.txt) | [全体文脈](slide-09/01_talk_outline.txt) | [専用指示](slide-09/02_slide_brief.txt) |
-| [10 三つの起動方法](slide-10/) | [プロンプト](slide-10/prompt.txt) | [デザイン](slide-10/00_style_guide.txt) | [全体文脈](slide-10/01_talk_outline.txt) | [専用指示](slide-10/02_slide_brief.txt) |
-| [11 進める・戻す・終える](slide-11/) | [プロンプト](slide-11/prompt.txt) | [デザイン](slide-11/00_style_guide.txt) | [全体文脈](slide-11/01_talk_outline.txt) | [専用指示](slide-11/02_slide_brief.txt) |
-| [12 実装と効果は別](slide-12/) | [プロンプト](slide-12/prompt.txt) | [デザイン](slide-12/00_style_guide.txt) | [全体文脈](slide-12/01_talk_outline.txt) | [専用指示](slide-12/02_slide_brief.txt) |
-| [13 流れは単純に、責任は明確に](slide-13/) | [プロンプト](slide-13/prompt.txt) | [デザイン](slide-13/00_style_guide.txt) | [全体文脈](slide-13/01_talk_outline.txt) | [専用指示](slide-13/02_slide_brief.txt) |
+| [01 自宅AI環境の裏側](slide-01/) | [プロンプト](slide-01/prompt.md) | [共通書式](slide-01/00_style_guide.md) | [全体文脈](slide-01/01_talk_outline.md) | [専用指示](slide-01/02_slide_brief.md) |
+| [02 AIを使うための仕事を減らしたい](slide-02/) | [プロンプト](slide-02/prompt.md) | [共通書式](slide-02/00_style_guide.md) | [全体文脈](slide-02/01_talk_outline.md) | [専用指示](slide-02/02_slide_brief.md) |
+| [03 自宅の作業場とクラウド](slide-03/) | [プロンプト](slide-03/prompt.md) | [共通書式](slide-03/00_style_guide.md) | [全体文脈](slide-03/01_talk_outline.md) | [専用指示](slide-03/02_slide_brief.md) |
+| [04 依頼が結果になるまで](slide-04/) | [プロンプト](slide-04/prompt.md) | [共通書式](slide-04/00_style_guide.md) | [全体文脈](slide-04/01_talk_outline.md) | [専用指示](slide-04/02_slide_brief.md) |
+| [05 GitHubで要求と現在地を確かめる](slide-05/) | [プロンプト](slide-05/prompt.md) | [共通書式](slide-05/00_style_guide.md) | [全体文脈](slide-05/01_talk_outline.md) | [専用指示](slide-05/02_slide_brief.md) |
+| [06 ルール・手順・機械処理](slide-06/) | [プロンプト](slide-06/prompt.md) | [共通書式](slide-06/00_style_guide.md) | [全体文脈](slide-06/01_talk_outline.md) | [専用指示](slide-06/02_slide_brief.md) |
+| [07 コンテキスト基盤](slide-07/) | [プロンプト](slide-07/prompt.md) | [共通書式](slide-07/00_style_guide.md) | [全体文脈](slide-07/01_talk_outline.md) | [専用指示](slide-07/02_slide_brief.md) |
+| [08 Jevの情報選別](slide-08/) | [プロンプト](slide-08/prompt.md) | [共通書式](slide-08/00_style_guide.md) | [全体文脈](slide-08/01_talk_outline.md) | [専用指示](slide-08/02_slide_brief.md) |
+| [09 判断と実行の担当](slide-09/) | [プロンプト](slide-09/prompt.md) | [共通書式](slide-09/00_style_guide.md) | [全体文脈](slide-09/01_talk_outline.md) | [専用指示](slide-09/02_slide_brief.md) |
+| [10 三つの起動方法](slide-10/) | [プロンプト](slide-10/prompt.md) | [共通書式](slide-10/00_style_guide.md) | [全体文脈](slide-10/01_talk_outline.md) | [専用指示](slide-10/02_slide_brief.md) |
+| [11 進める・戻す・終える](slide-11/) | [プロンプト](slide-11/prompt.md) | [共通書式](slide-11/00_style_guide.md) | [全体文脈](slide-11/01_talk_outline.md) | [専用指示](slide-11/02_slide_brief.md) |
+| [12 実装と効果は別](slide-12/) | [プロンプト](slide-12/prompt.md) | [共通書式](slide-12/00_style_guide.md) | [全体文脈](slide-12/01_talk_outline.md) | [専用指示](slide-12/02_slide_brief.md) |
+| [13 流れは単純に、責任は明確に](slide-13/) | [プロンプト](slide-13/prompt.md) | [共通書式](slide-13/00_style_guide.md) | [全体文脈](slide-13/01_talk_outline.md) | [専用指示](slide-13/02_slide_brief.md) |
 
-## 全ページの共通条件
+## 受け取る成果物
 
-白背景、16:9、日本語・英数字ともMeiryo UI、濃いグレーの文字、青1色の強調です。
-タイトル32pt、本文・図中の主要説明22〜24ptを基本とし、読めないほどの縮小を避けます。
-図はPowerPointの編集可能な図形・テキスト・コネクタで作り、画像貼り付けにしないよう指定しています。
-追加表紙・空白ページ・発表者ノートは作らない指定です。
-各回に追加添付を要求せず、前の生成結果にも依存しない入力にしています。
+`homelab_ai_01.pptx`〜`homelab_ai_13.pptx`を、1回1ファイル・各1スライドで生成する指定です。
+スライドの連結、PDF出力、発表者ノートの作成はこのセットの依頼に含めません。
+白背景、16:9、全テキストMeiryo UI、本文22pt以上、編集可能な図形を共通条件にしています。
+Meiryo UIのフォントファイルは配布・添付・埋め込みしません。
 
-## 内容上の注意
+## 内容上の重要な条件
 
-Jevの図では、必須指示・権限・受入条件を選別の対象にせず、参考資料とは別経路で保持します。
-モデルの配役を固定の自動昇格ルートとして描きません。
-実装・限定的な動作確認・仕事全体の効果を区別し、未測定の効果を実績として補わせません。
-内部設定・実メール・個人情報・非公開リポジトリの内容を添付する必要はありません。
-内容の正本は[公開用の構成案](../outline.md)です。このセットはその具体化であり、元の構成案を削除・置換していません。
+Jevでは必須指示・権限・受入条件が選別対象に入らない二経路を維持します。
+モデルの担当図を固定の自動昇格ルートとして描きません。
+基本ループでは結果を判断へ戻し、返答の分岐と混同しません。
+第12枚の確認項目は、すべて実証済みの成果一覧として扱いません。
+公開用の説明に限定し、内部設定、実メール、個人・顧客情報を添付する必要はありません。
+内容の基礎となる[公開構成案](../outline.md)は維持しています。
 
-## 確認範囲
+## 確認の範囲
 
-このセットに完成版の.pptxは含まれません。
-Copilot Chat Basic上での実際の生成、表示、ダウンロード、フォント描画はこのリポジトリ登録時点では未確認です。
-利用環境で生成できない場合に、ファイルや実績を捏造せず制約を明示する指示も含めています。
-Meiryo UIのフォントファイルは含めていません。生成後の実ファイルで指定・表示・編集可能性を確認してください。
+このリポジトリに入っているのは生成用Markdownです。完成版.pptxや実フォントでの描画結果は含みません。
+Copilot Chat Basic／5.6think上での実際の添付、生成、ダウンロード、表示は未検証です。
+生成後はPowerPointで文字や図形を選択できること、文字切れがないこと、Meiryo UIの指定と表示、スライド数1を確認してください。
+機能が使えない場合や描画を確認できない場合に、完了を捏造せず制約を示す指示も含めています。
