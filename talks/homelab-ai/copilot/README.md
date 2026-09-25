@@ -1,11 +1,22 @@
-# わしの家のAI環境：Copilot 1枚生成セット
+# Copilot一枚生成セット｜旧版・v4未同期
 
-現行の[全13枚の制作仕様](../production-spec.md)を、Copilot 5.6 Think（極高）で1枚ずつPowerPointへ転記するための入力一式です。自動生成の成功や実レンダリング結果は保証しません。
+**この配下のslide-01〜slide-13は旧版です。**
+2026-09-26に発表の構成・設計・制作仕様をv4へ変更しましたが、この配下の各入力ファイルは再生成していません。
+旧セットのタイトル、順序、表示文言、台本、座標を、そのまま現在の13枚として使わないでください。
 
-対象のslide-01〜slide-13で次の3ファイルを添付し、同じフォルダのprompt.md本文をチャット欄へ貼り付けます。prompt.mdは添付しません。
+## 現在の正本
 
-1. 00_style_guide.md（共通の寸法、style、接続線の規則）
-2. 01_talk_outline.md（発表の順序。画面へ転載しない）
-3. 02_slide_brief.md（当該1枚の全objectとconnector。表示文字の正本）
+- [slide-design.md](../slide-design.md)：全13枚の掲載文言、図の意図、話す内容、注意事項。
+- [outline.md](../outline.md)：順序と時間配分。
+- [production-spec.md](../production-spec.md)：共通スタイルと各ページの配置方針。
 
-各ページは1枚だけ、homelab_ai_NN.pptxとして返す指定です。02_slide_brief.mdだけでも該当ページのstyleと座標が揃う構成にしています。見切れや描画未確認はpromptの条件どおり報告してください。
+v4を生成する場合は、上の三つを参照し、slide-design.mdの対象ページを指定してください。
+この配下の旧02_slide_brief.mdを、v4の表示文言の正本として混ぜないでください。
+
+## 旧版を残す理由と範囲
+
+既存セットは、旧版を再確認するためにそのまま残します。
+旧版では各ページの00_style_guide.md、01_talk_outline.md、02_slide_brief.mdとprompt.mdを組み合わせていました。
+これらは過去の生成用入力であり、v4との整合や生成結果を保証しません。
+
+今回の変更は現行設計の更新と旧版の識別であり、PowerPoint本体や各ページのCopilot入力の再生成ではありません。
