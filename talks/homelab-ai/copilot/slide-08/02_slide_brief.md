@@ -44,7 +44,7 @@
 
 **表示見出しはObject表の指定を使用。時間：45秒。**
 
-制作メタ（非表示）：撤去と責務の移管先を示す。 口頭説明はslide-design.mdの第08枚を参照し、画面へ転載しない。
+制作メタ（非表示）：撤去と責務の移管先、規則と強いモデルへの集中という残る癖を示す。 口頭説明はslide-design.mdの第08枚を参照し、画面へ転載しない。
 
 ### Object表
 
@@ -52,15 +52,17 @@
 |---|---|---|---:|---:|---:|---:|---|---:|
 | old | rect | PANEL | 40 | 160 | 245 | 230 |  | 10 |
 | standard | rect | BLUE | 420 | 160 | 500 | 230 |  | 10 |
+| remaining | rect | PANEL | 40 | 402 | 880 | 54 |  | 10 |
 | title | text | T32 | 40 | 28 | 880 | 48 | 独自Harnessを撤去した | 30 |
 | metric | text | E24 | 40 | 102 | 880 | 38 | 375,900 deletions | 30 |
 | oldHead | text | B28 | 56 | 192 | 213 | 76 | 独自<br>Harness | 30 |
-| oldBody | text | B22 | 56 | 292 | 213 | 70 | 作業状態を<br>自前で管理 | 30 |
+| oldBody | text | B22 | 56 | 292 | 213 | 70 | claim・復旧点も<br>自前で管理 | 30 |
 | standardHead | text | L20 | 438 | 180 | 464 | 30 | 標準機能へ戻した責任 | 30 |
 | standardRow1 | text | B22 | 438 | 224 | 464 | 30 | Codex：実行 | 30 |
 | standardRow2 | text | B22 | 438 | 258 | 464 | 30 | Git：変更 | 30 |
 | standardRow3 | text | B22 | 438 | 292 | 464 | 30 | GitHub：開発状態 | 30 |
 | standardRow4 | text | B22 | 438 | 326 | 464 | 30 | 自作：接続・入力加工・安全境界 | 30 |
+| remainingText | text | B22 | 58 | 410 | 844 | 36 | 規則が太ると、強いモデルへ調査・完了条件が集中 | 30 |
 | page | text | P12 | 860 | 498 | 60 | 14 | 08 / 13 | 40 |
 | metricNote | text | N14 | 40 | 470 | 820 | 25 | 撤去commit差分：300 files changed / 629 additions。手書きLOC・効果の値ではない。 | 40 |
 

@@ -44,27 +44,27 @@
 
 **表示見出しはObject表の指定を使用。時間：40秒。**
 
-制作メタ（非表示）：必須情報と参考資料を別レーンから同じ入力へ合流させる。 口頭説明はslide-design.mdの第10枚を参照し、画面へ転載しない。
+制作メタ（非表示）：現行13枚の必須条件と、旧案を含む参考資料を別レーンから渡す。 口頭説明はslide-design.mdの第10枚を参照し、画面へ転載しない。
 
 ### Object表
 
 | ID | 種別 | Style | x | y | w | h | Text（表示文字） | z |
 |---|---|---|---:|---:|---:|---:|---|---:|
-| required | rect | BLUE | 40 | 150 | 260 | 130 |  | 10 |
-| reference | rect | PANEL | 40 | 295 | 260 | 100 |  | 10 |
+| required | rect | BLUE | 40 | 150 | 305 | 130 |  | 10 |
+| reference | rect | PANEL | 40 | 295 | 305 | 100 |  | 10 |
 | jev | rect | WHITE | 385 | 295 | 205 | 100 |  | 10 |
 | recipient | rect | BLUE | 680 | 150 | 240 | 260 |  | 10 |
 | title | text | T32 | 40 | 28 | 880 | 48 | 担当に何を渡すか | 30 |
-| requiredHead | text | L20 | 55 | 163 | 230 | 30 | 現在の必須情報 | 30 |
-| requiredBody | text | B22 | 55 | 198 | 230 | 78 | 目的・範囲<br>必須指示・権限<br>受入条件 | 30 |
-| referenceHead | text | L20 | 55 | 305 | 230 | 28 | 参考資料 | 30 |
-| referenceBody | text | B22 | 55 | 338 | 230 | 50 | Context DBの事情 | 30 |
+| requiredHead | text | L20 | 55 | 163 | 275 | 30 | 現在の必須情報 | 30 |
+| requiredBody | text | B22 | 55 | 198 | 275 | 78 | 現行13枚・起承転結<br>10分・3添付・1枚生成<br>白・Meiryo UI・編集可 | 30 |
+| referenceHead | text | L20 | 55 | 305 | 275 | 28 | Context DBの参考情報 | 30 |
+| referenceBody | text | B22 | 55 | 336 | 275 | 56 | 過去の判断理由<br>時点・出典・訂正 | 30 |
 | jevHead | text | L20 | 398 | 304 | 180 | 28 | 限定選別 | 30 |
-| jevBody | text | B22 | 398 | 334 | 180 | 56 | コード候補化<br>Jevで関係判定 | 30 |
+| jevBody | text | B22 | 398 | 334 | 180 | 56 | 旧案を候補化<br>Jevが関係判定 | 30 |
 | recipientHead | text | L20 | 696 | 178 | 208 | 30 | 担当への入力 | 30 |
-| recipientBody | text | B22 | 696 | 235 | 208 | 100 | 現在の依頼と<br>必要な事情<br>コードで組立 | 30 |
+| recipientBody | text | B22 | 696 | 235 | 208 | 100 | 現在の13枚と<br>維持する生成条件<br>必要な事情だけ | 30 |
 | page | text | P12 | 860 | 498 | 60 | 14 | 10 / 13 | 40 |
-| note | text | N14 | 40 | 470 | 790 | 25 | 説明用。Jevは参考資料の補助。全体効果は未測定。 | 40 |
+| note | text | N14 | 40 | 470 | 790 | 25 | 必須条件は直通。不確実な参考資料は落とさない。 | 40 |
 
 ### Connector表（論理経路）
 
@@ -78,6 +78,6 @@
 
 | 論理ID | segment ID | 始点(x,y) | 終点(x,y) | 境界固定 | Style | head | z |
 |---|---|---|---|---|---|---|---:|
-| requiredDirect | requiredDirect_s1 | (300,215) | (680,215) | 始点=required:right@0.5 / 終点=recipient:left@0.25 | FLOW | target側7pt三角 | 20 |
-| referenceToJev | referenceToJev_s1 | (300,345) | (385,345) | 始点=reference:right@0.5 / 終点=jev:left@0.5 | REF | target側6pt三角 | 20 |
+| requiredDirect | requiredDirect_s1 | (345,215) | (680,215) | 始点=required:right@0.5 / 終点=recipient:left@0.25 | FLOW | target側7pt三角 | 20 |
+| referenceToJev | referenceToJev_s1 | (345,345) | (385,345) | 始点=reference:right@0.5 / 終点=jev:left@0.5 | REF | target側6pt三角 | 20 |
 | jevToRecipient | jevToRecipient_s1 | (590,345) | (680,345) | 始点=jev:right@0.5 / 終点=recipient:left@0.75 | REF | target側6pt三角 | 20 |

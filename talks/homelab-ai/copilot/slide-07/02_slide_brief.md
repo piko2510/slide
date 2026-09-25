@@ -44,7 +44,7 @@
 
 **表示見出しはObject表の指定を使用。時間：45秒。**
 
-制作メタ（非表示）：事故と追加した機構を四行で対応させる。 口頭説明はslide-design.mdの第07枚を参照し、画面へ転載しない。
+制作メタ（非表示）：二重実行や古いheadへの対策と、独自状態を照合する負担を対応させる。 口頭説明はslide-design.mdの第07枚を参照し、画面へ転載しない。
 
 ### Object表
 
@@ -59,13 +59,13 @@
 | mechanismHead | text | L20 | 535 | 105 | 385 | 35 | 足した仕組み | 30 |
 | row1Left | text | B22 | 58 | 163 | 435 | 34 | 二重実行 | 30 |
 | row1Right | text | B22 | 535 | 163 | 365 | 34 | claim / lease | 30 |
-| row2Left | text | B22 | 58 | 230 | 435 | 34 | 許可範囲を越える操作 | 30 |
-| row2Right | text | B22 | 535 | 230 | 365 | 34 | Authority / gate | 30 |
-| row3Left | text | B22 | 58 | 297 | 435 | 34 | 中断後の誤った再開 | 30 |
+| row2Left | text | B22 | 58 | 230 | 435 | 34 | 古いheadで公開する | 30 |
+| row2Right | text | B22 | 535 | 230 | 365 | 34 | 対象headの照合 | 30 |
+| row3Left | text | B22 | 58 | 297 | 435 | 34 | 中断後の再開点が不明 | 30 |
 | row3Right | text | B22 | 535 | 297 | 365 | 34 | checkpoint / receipt | 30 |
-| row4Left | text | B22 | 58 | 364 | 435 | 34 | 古い変更を受け入れる | 30 |
-| row4Right | text | B22 | 535 | 364 | 365 | 34 | 対象headの照合 | 30 |
-| result | text | E24 | 40 | 450 | 880 | 40 | 管理の仕組みも、管理する必要が出た | 30 |
+| row4Left | text | B22 | 58 | 364 | 435 | 34 | 許可範囲を越える | 30 |
+| row4Right | text | B22 | 535 | 364 | 365 | 34 | Authority / gate | 30 |
+| result | text | E24 | 40 | 450 | 880 | 40 | GitHubと独自状態を突き合わせる仕事が増えた | 30 |
 | page | text | P12 | 860 | 498 | 60 | 14 | 07 / 13 | 40 |
 
 ### Connector表（論理経路）
