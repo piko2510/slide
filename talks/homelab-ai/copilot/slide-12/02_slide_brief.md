@@ -1,23 +1,92 @@
-# 第12枚 専用指示書
-## 出力
-- `homelab_ai_12.pptx`
-- `12 / 13`
-## 目的
-現在のAI環境を、製品一覧ではなく **責任の置き場所** としてまとめる。
-## 掲載文言
-- タイトル：今の構成は「シンプル」ではなく「責任の置き場所が明確」
-- 実行ループ：Codex
-- 作業状態：Git
-- 要求・PR・review・CI：GitHub
-- 目的・受入：親Astra
-- 通常実働：Sol
-- 明確・照合可能：Luna
-- 専門実装：Grokなど外部担当
-- 限定意味判定：Jev
-- 事情・理由・制約：Context DB
-- 共通ルール：AGENTS.md
-- 結論：どれか一つを万能にしない。
-## レイアウト
-左：状態・標準基盤（Codex / Git / GitHub）。中央：判断・実働（Astra / Sol / Luna / 外部担当）。右：文脈・前処理（Context DB / Jev）。AGENTS.mdを横断ルールとして細長く置く。Proxmoxは小さく「自宅の作業場」という土台ラベル程度。
-## 検収
-製品ロゴ一覧や万能司令塔の図に見えないこと。
+# 第12枚の制作仕様
+
+出力：homelab_ai_12.pptx、1枚のみ、40秒のページ。
+以下の共通styleと当該ページの表だけで単独生成できる。説明文は画面に出さない。
+
+## 共通制作style
+
+この文書は制作指示であり、スライドへ転載しない。画面に出す文字は各ページのobject表のtext種別のText欄だけを正本とする。rect種別のText空欄は無文字を意味する。<br>は明示改行であり文字列として表示しない。Unicodeの矢印文字を作らず、接続線表どおりの編集可能なPowerPointコネクタを作る。
+
+- キャンバス：960 × 540 pt（13.3333 × 7.5 inch、16:9）。原点は左上。1 pt = 12700 EMU、72 pt = 1 inch。
+- 背景：白 #FFFFFF。すべての文字のLatinとEast Asianフォント名をMeiryo UIへ設定する。
+- 色：本文 #222222、補足 #505050、青 #1F5FAF、薄灰 #F5F6F8、枠 #D0D5DD。
+- 外周余白：左40 pt、右40 pt、上28 pt、下28 pt。ページ番号だけはy=498..512 pt。通常のtitleはy=28..76 pt、主図はy=100..450 pt、注記はy=470..498 ptに置く。
+- オブジェクト座標はx,y,w,hの順にpt。四角の角丸は0、影なし。zが小さいものから描く。すべての文字を別のテキストボックスとし、背景の四角に文字を入れない。
+- テキストは自動縮小、自動拡張、均等割付をOFF。指定の明示改行だけを使う。行が収まらない場合は原因を特定し、制作者が文字サイズを下げたり文言を追加したりしない。
+- テキスト枠の内余白は上下左右0。行間は次の表の倍率、段落前後は0。垂直位置は中央。ここにないフォント、色、塗り、線、配置を推測して加えない。
+- line表のsource/targetはshapeID:辺@割合。辺の割合は左上から右下へ0..1。source境界座標→waypoint→target境界座標の各隣接点を、個別の直線PowerPointコネクタとして作る。本数は点列長-1で、IDは論理ID_s1、_s2の順。矢印headは最後のsegmentのtarget側だけに付ける。sourceとtargetの箱の境界座標を保ち、自動ルーティングは使わない。Segment表の座標が描画の正本。コネクタはz=20で背景の上、文字の下。文字や無関係な内容パネルを貫通させない。
+- 本編は13枚、計600秒。出力は指定ページ1枚だけの編集可能な.pptx。PPTXへ画像化せず、写真、ロゴ、家や雲の装飾輪郭、グラデーション、影を加えない。
+
+| Style | 種別 | フォントとpt | 太さ | 文字色 | 塗り | 枠線 | 内余白（上/右/下/左、pt） | 水平/垂直 | 行間 |
+|---|---|---|---|---|---|---|---|---|---|
+| T32 | text | Meiryo UI 32 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
+| T40 | text | Meiryo UI 40 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
+| B28 | text | Meiryo UI 28 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.05 |
+| B24 | text | Meiryo UI 24 | regular | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.08 |
+| B22 | text | Meiryo UI 22 | regular | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.10 |
+| C22 | text | Meiryo UI 22 | regular | #222222 | なし | なし | 0/0/0/0 | 中央/中央 | 1.10 |
+| L20 | text | Meiryo UI 20 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
+| C20 | text | Meiryo UI 20 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 中央/中央 | 1.00 |
+| E24 | text | Meiryo UI 24 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 左/中央 | 1.05 |
+| N14 | text | Meiryo UI 14 | regular | #505050 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
+| P12 | text | Meiryo UI 12 | regular | #505050 | なし | なし | 0/0/0/0 | 右/中央 | 1.00 |
+| PANEL | rect | なし | なし | なし | #F5F6F8 | #D0D5DD 1pt | — | なし | なし |
+| WHITE | rect | なし | なし | なし | #FFFFFF | #D0D5DD 1pt | — | なし | なし |
+| BLUE | rect | なし | なし | なし | #FFFFFF | #1F5FAF 2pt | — | なし | なし |
+| BAR | rect | なし | なし | なし | #1F5FAF | なし | — | なし | なし |
+
+| Line style | 幅 | 色 | head | z |
+|---|---:|---|---|---:|
+| FLOW | 2pt | #1F5FAF | target側に7pt三角 | 20 |
+| REF | 1.5pt | #505050 | target側に6pt三角 | 20 |
+
+## 12｜何を見て、終わったと判断するか
+
+**表示見出しはObject表の指定を使用。時間：40秒。**
+
+制作メタ（非表示）：結果と到達点の両方を親が照合する。 口頭説明はslide-design.mdの第12枚を参照し、画面へ転載しない。
+
+### Object表
+
+| ID | 種別 | Style | x | y | w | h | Text（表示文字） | z |
+|---|---|---|---:|---:|---:|---:|---|---:|
+| result | rect | PANEL | 40 | 165 | 250 | 125 |  | 10 |
+| parent | rect | BLUE | 355 | 175 | 250 | 105 |  | 10 |
+| target | rect | PANEL | 670 | 165 | 250 | 125 |  | 10 |
+| git | rect | WHITE | 105 | 355 | 270 | 75 |  | 10 |
+| github | rect | WHITE | 585 | 355 | 270 | 75 |  | 10 |
+| title | text | T32 | 40 | 28 | 880 | 48 | 何を見て終わったと判断するか | 30 |
+| resultHead | text | L20 | 56 | 181 | 218 | 28 | 結果と根拠 | 30 |
+| resultBody | text | B22 | 56 | 220 | 218 | 62 | 直した箇所<br>確認結果・未確認 | 30 |
+| parentHead | text | L20 | 373 | 190 | 214 | 30 | 親が照合 | 30 |
+| parentBody | text | B22 | 373 | 227 | 214 | 40 | 到達点と根拠 | 30 |
+| targetHead | text | L20 | 686 | 181 | 218 | 28 | 依頼の到達点 | 30 |
+| targetBody | text | B22 | 686 | 220 | 218 | 62 | 公開範囲<br>確認の条件 | 30 |
+| gitHead | text | L20 | 121 | 365 | 238 | 25 | Git | 30 |
+| gitBody | text | B22 | 121 | 397 | 238 | 27 | 変更・差分 | 30 |
+| githubHead | text | L20 | 601 | 365 | 238 | 25 | GitHub | 30 |
+| githubBody | text | B22 | 601 | 397 | 238 | 27 | PR・review・CI | 30 |
+| page | text | P12 | 860 | 498 | 60 | 14 | 12 / 13 | 40 |
+| note | text | N14 | 40 | 470 | 790 | 25 | 新権限・範囲・重要判断は本人へ別に戻す。 | 40 |
+
+### Connector表（論理経路）
+
+| 論理ID | source | target | waypoints（pt） | segment数 | Style | z |
+|---|---|---|---|---:|---|---:|
+| resultToParent | result:right@0.5 | parent:left@0.5 | なし | 1 | FLOW | 20 |
+| targetToParent | target:left@0.5 | parent:right@0.5 | なし | 1 | FLOW | 20 |
+| gitToParent | git:top@0.5 | parent:bottom@0.3 | (240,320); (430,320) | 3 | REF | 20 |
+| githubToParent | github:top@0.5 | parent:bottom@0.7 | (720,320); (530,320) | 3 | REF | 20 |
+
+### Segment表（描画座標）
+
+| 論理ID | segment ID | 始点(x,y) | 終点(x,y) | 境界固定 | Style | head | z |
+|---|---|---|---|---|---|---|---:|
+| resultToParent | resultToParent_s1 | (290,227.5) | (355,227.5) | 始点=result:right@0.5 / 終点=parent:left@0.5 | FLOW | target側7pt三角 | 20 |
+| targetToParent | targetToParent_s1 | (670,227.5) | (605,227.5) | 始点=target:left@0.5 / 終点=parent:right@0.5 | FLOW | target側7pt三角 | 20 |
+| gitToParent | gitToParent_s1 | (240,355) | (240,320) | 始点=git:top@0.5 | REF | なし | 20 |
+| gitToParent | gitToParent_s2 | (240,320) | (430,320) | 中継点 | REF | なし | 20 |
+| gitToParent | gitToParent_s3 | (430,320) | (430,280) | 終点=parent:bottom@0.3 | REF | target側6pt三角 | 20 |
+| githubToParent | githubToParent_s1 | (720,355) | (720,320) | 始点=github:top@0.5 | REF | なし | 20 |
+| githubToParent | githubToParent_s2 | (720,320) | (530,320) | 中継点 | REF | なし | 20 |
+| githubToParent | githubToParent_s3 | (530,320) | (530,280) | 終点=parent:bottom@0.7 | REF | target側6pt三角 | 20 |

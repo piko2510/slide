@@ -8,6 +8,7 @@
 
 - [13枚のスライド設計書](talks/homelab-ai/slide-design.md)：掲載文言、図、口頭説明、時間配分
 - [発表構成](talks/homelab-ai/outline.md)：話の順序と各ページの役割
-- [旧版のCopilot生成セット](talks/homelab-ai/copilot/README.md)：以前の「設計判断版」。今回の構成は未反映
+- [全13枚の制作仕様](talks/homelab-ai/production-spec.md)：表示文字、座標、図形、接続線の指定
+- [Copilot 1枚生成セット](talks/homelab-ai/copilot/README.md)：現行構成に対応する各ページの入力一式
 
 公開資料には、内部IP、認証情報、実メール、個人情報や顧客情報を載せません。

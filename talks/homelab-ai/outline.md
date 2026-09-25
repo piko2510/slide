@@ -34,4 +34,4 @@
 
 撤去commitのGitHub差分は **300 files changed / 375,900 deletions / 629 additions**。手書きコード量や効果の測定値ではない。9〜12枚目で追う依頼は説明用の例で、実行記録や成功実績ではない。Jevを含めた全体効果は未測定。
 
-[旧版のCopilot生成セット](copilot/README.md)は以前の構成に対応する。今回の13枚を生成する入力としては使わない。
+スライドの表示文字と図形の寸法は[全13枚の制作仕様](production-spec.md)、1枚ずつの生成に使う入力は[Copilot生成セット](copilot/README.md)を参照する。
