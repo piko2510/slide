@@ -44,7 +44,7 @@
 
 **表示見出しはObject表の指定を使用。時間：40秒。**
 
-制作メタ（非表示）：結果と到達点の両方を親が照合する。 口頭説明はslide-design.mdの第12枚を参照し、画面へ転載しない。
+制作メタ（非表示）：13枚とbrief、公開main、未描画という結果と到達点を親が照合する。 口頭説明はslide-design.mdの第12枚を参照し、画面へ転載しない。
 
 ### Object表
 
@@ -57,17 +57,17 @@
 | github | rect | WHITE | 585 | 355 | 270 | 75 |  | 10 |
 | title | text | T32 | 40 | 28 | 880 | 48 | 何を見て終わったと判断するか | 30 |
 | resultHead | text | L20 | 56 | 181 | 218 | 28 | 結果と根拠 | 30 |
-| resultBody | text | B22 | 56 | 220 | 218 | 62 | 直した箇所<br>確認結果・未確認 | 30 |
-| parentHead | text | L20 | 373 | 190 | 214 | 30 | 親が照合 | 30 |
+| resultBody | text | B22 | 56 | 220 | 218 | 62 | 13枚とbrief<br>URL・PPT未描画 | 30 |
+| parentHead | text | L20 | 373 | 190 | 214 | 30 | 親Astraが照合 | 30 |
 | parentBody | text | B22 | 373 | 227 | 214 | 40 | 到達点と根拠 | 30 |
 | targetHead | text | L20 | 686 | 181 | 218 | 28 | 依頼の到達点 | 30 |
-| targetBody | text | B22 | 686 | 220 | 218 | 62 | 公開範囲<br>確認の条件 | 30 |
+| targetBody | text | B22 | 686 | 220 | 218 | 62 | 題目・文言一致<br>必須条件の保持 | 30 |
 | gitHead | text | L20 | 121 | 365 | 238 | 25 | Git | 30 |
-| gitBody | text | B22 | 121 | 397 | 238 | 27 | 変更・差分 | 30 |
+| gitBody | text | B22 | 121 | 397 | 238 | 27 | 変更・差分・main | 30 |
 | githubHead | text | L20 | 601 | 365 | 238 | 25 | GitHub | 30 |
-| githubBody | text | B22 | 601 | 397 | 238 | 27 | PR・review・CI | 30 |
+| githubBody | text | B22 | 601 | 397 | 238 | 27 | PR・merge・公開URL | 30 |
 | page | text | P12 | 860 | 498 | 60 | 14 | 12 / 13 | 40 |
-| note | text | N14 | 40 | 470 | 790 | 25 | 新権限・範囲・重要判断は本人へ別に戻す。 | 40 |
+| note | text | N14 | 40 | 470 | 790 | 25 | 公開済みとPPT実描画は別。新しい公開情報は本人判断。 | 40 |
 
 ### Connector表（論理経路）
 

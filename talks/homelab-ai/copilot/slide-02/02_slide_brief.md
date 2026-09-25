@@ -52,19 +52,19 @@
 |---|---|---|---:|---:|---:|---:|---|---:|
 | home | rect | PANEL | 170 | 138 | 430 | 292 |  | 10 |
 | human | rect | WHITE | 40 | 245 | 100 | 80 |  | 10 |
-| codex | rect | BLUE | 230 | 220 | 180 | 84 |  | 10 |
-| db | rect | WHITE | 230 | 338 | 180 | 67 |  | 10 |
+| codex | rect | BLUE | 230 | 220 | 230 | 84 |  | 10 |
+| db | rect | WHITE | 230 | 338 | 230 | 67 |  | 10 |
 | cloud | rect | BLUE | 680 | 165 | 240 | 85 |  | 10 |
 | github | rect | WHITE | 680 | 325 | 240 | 85 |  | 10 |
 | title | text | T32 | 40 | 28 | 880 | 48 | 家に置くものと、クラウド | 30 |
 | homeLabel | text | L20 | 190 | 152 | 390 | 30 | 自宅：Proxmox上のVM | 30 |
 | humanText | text | C20 | 50 | 269 | 80 | 32 | 人間 | 30 |
-| codexText | text | C22 | 245 | 235 | 150 | 54 | Codex<br>作業環境 | 30 |
-| dbText | text | C20 | 245 | 345 | 150 | 54 | Context DB<br>情報基盤 | 30 |
-| cloudText | text | C22 | 696 | 179 | 208 | 58 | クラウド<br>モデル推論 | 30 |
-| githubText | text | C22 | 696 | 339 | 208 | 58 | GitHub<br>開発の状態 | 30 |
+| codexText | text | C20 | 242 | 235 | 202 | 54 | Codex・tools<br>worktreeで作業 | 30 |
+| dbText | text | C20 | 242 | 345 | 202 | 54 | Context DB<br>事情・理由・制約 | 30 |
+| cloudText | text | C22 | 696 | 179 | 208 | 58 | クラウド<br>推論する先 | 30 |
+| githubText | text | C20 | 696 | 339 | 208 | 58 | GitHub<br>要求・PR・公開状態 | 30 |
 | page | text | P12 | 860 | 498 | 60 | 14 | 02 / 13 | 40 |
-| note | text | N14 | 40 | 470 | 790 | 25 | Git：変更履歴。モデル推論はクラウド。 | 40 |
+| note | text | N14 | 40 | 470 | 790 | 25 | 自宅は作業と事情。モデル推論はクラウド。 | 40 |
 
 ### Connector表（論理経路）
 
@@ -82,10 +82,10 @@
 | humanToCodex | humanToCodex_s1 | (140,285) | (170,285) | 始点=human:right@0.5 | FLOW | なし | 20 |
 | humanToCodex | humanToCodex_s2 | (170,285) | (170,262) | 中継点 | FLOW | なし | 20 |
 | humanToCodex | humanToCodex_s3 | (170,262) | (230,262) | 終点=codex:left@0.5 | FLOW | target側7pt三角 | 20 |
-| codexToCloud | codexToCloud_s1 | (410,249.4) | (630,249.4) | 始点=codex:right@0.35 | FLOW | なし | 20 |
+| codexToCloud | codexToCloud_s1 | (460,249.4) | (630,249.4) | 始点=codex:right@0.35 | FLOW | なし | 20 |
 | codexToCloud | codexToCloud_s2 | (630,249.4) | (630,207.5) | 中継点 | FLOW | なし | 20 |
 | codexToCloud | codexToCloud_s3 | (630,207.5) | (680,207.5) | 終点=cloud:left@0.5 | FLOW | target側7pt三角 | 20 |
-| codexToGithub | codexToGithub_s1 | (410,283) | (635,283) | 始点=codex:right@0.75 | FLOW | なし | 20 |
+| codexToGithub | codexToGithub_s1 | (460,283) | (635,283) | 始点=codex:right@0.75 | FLOW | なし | 20 |
 | codexToGithub | codexToGithub_s2 | (635,283) | (635,367.5) | 中継点 | FLOW | なし | 20 |
 | codexToGithub | codexToGithub_s3 | (635,367.5) | (680,367.5) | 終点=github:left@0.5 | FLOW | target側7pt三角 | 20 |
-| dbToCodex | dbToCodex_s1 | (320,338) | (320,304) | 始点=db:top@0.5 / 終点=codex:bottom@0.5 | REF | target側6pt三角 | 20 |
+| dbToCodex | dbToCodex_s1 | (345,338) | (345,304) | 始点=db:top@0.5 / 終点=codex:bottom@0.5 | REF | target側6pt三角 | 20 |
