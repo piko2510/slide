@@ -18,7 +18,7 @@ AIへ仕事を任せたいのに人間が中継していた負担から、独自
 - [全18枚のスライド設計書・台本](talks/homelab-ai/slide-design.md)：掲載文言、図の意図、話す内容、台本外の技術注記の正本。
 - [発表構成](talks/homelab-ai/outline.md)：18枚の順序、話の転換点、説明9分25秒＋余裕35秒の時間配分。
 - [制作仕様](talks/homelab-ai/production-spec.md)：5.6を継承する共通スタイル、実装説明と転換ページの配置、PowerPoint生成後の確認項目。
-- [旧Copilotセットについて](talks/homelab-ai/copilot/README.md)：既存の一枚生成セットは現行v6へ未同期です。そのまま現行入力に使わないでください。
+- [Copilot一枚生成セット](talks/homelab-ai/copilot/README.md)：slide-01〜slide-18をv6へ同期済み。3ファイルを添付し、prompt.mdをチャット欄へ貼って1枚ずつ生成します。
 
 ## v6の変更
 
@@ -31,10 +31,20 @@ v5で追加したAGENTS.mdの短縮例、Skill Creatorと代表Skillのフォル
 SkillとHookはgithub-main-refreshの同じPythonを追います。
 実装やデザインを別物へ変更したのではなく、現在の環境を説明する台本と構成の更新です。
 
+## Copilot生成セットの同期
+
+全18フォルダに00_style_guide.md、01_talk_outline.md、02_slide_brief.md、prompt.mdを配置しました。
+既存13組の内容を更新し、14〜18を追加しています。
+各briefに対象ページの掲載文言、図の意図、台本全文、技術注記を収録しています。
+台本を読むための追加添付やリンク先取得を必須にしません。
+01_talk_outline.mdは正本outline.mdと同じ内容です。
+旧版のObject表・Segment表を要求する指示と、旧ページ番号は現行仕様へ置き換えました。
+この同期では、確定済みの台本・構成・制作仕様の正本を変更していません。
+
 ## 更新範囲と確認上の注意
 
-今回の更新は台本・構成・制作仕様です。
-**PowerPoint本体は、この更新では再生成していません。**
+台本・構成・制作仕様と、それに同期したCopilot生成セットを管理しています。
+**PowerPoint本体は、今回のCopilot入力同期では再生成していません。**
 v5以前の13枚・15枚のPPTXを、18枚のv6と混ぜないでください。
 10分の配分は制作上の枠であり、読み上げの実測値ではありません。
 

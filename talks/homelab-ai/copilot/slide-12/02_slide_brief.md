@@ -1,92 +1,83 @@
-# 第12枚の制作仕様
+# 第12枚の制作仕様｜v6
 
-出力：homelab_ai_12.pptx、1枚のみ、40秒のページ。
-以下の共通styleと当該ページの表だけで単独生成できる。説明文は画面に出さない。
+出力：homelab_ai_12.pptx、1枚のみ。ページ番号：12 / 18。
+同期元：talks/homelab-ai/slide-design.md、blob a1c1949f40559e04d2890862a74b4c6d944d68e0。
+以下は対象ページの本文。話す内容はノートへ収録し、画面へ転載しない。
 
-## 共通制作style
+### 12｜呼ぶタイミングも、Hookに任せる
 
-この文書は制作指示であり、スライドへ転載しない。画面に出す文字は各ページのobject表のtext種別のText欄だけを正本とする。rect種別のText空欄は無文字を意味する。<br>は明示改行であり文字列として表示しない。Unicodeの矢印文字を作らず、接続線表どおりの編集可能なPowerPointコネクタを作る。
+**時間：45秒**
 
-- キャンバス：960 × 540 pt（13.3333 × 7.5 inch、16:9）。原点は左上。1 pt = 12700 EMU、72 pt = 1 inch。
-- 背景：白 #FFFFFF。すべての文字のLatinとEast Asianフォント名をMeiryo UIへ設定する。
-- 色：本文 #222222、補足 #505050、青 #1F5FAF、薄灰 #F5F6F8、枠 #D0D5DD。
-- 外周余白：左40 pt、右40 pt、上28 pt、下28 pt。ページ番号だけはy=498..512 pt。通常のtitleはy=28..76 pt、主図はy=100..450 pt、注記はy=470..498 ptに置く。
-- オブジェクト座標はx,y,w,hの順にpt。四角の角丸は0、影なし。zが小さいものから描く。すべての文字を別のテキストボックスとし、背景の四角に文字を入れない。
-- テキストは自動縮小、自動拡張、均等割付をOFF。指定の明示改行だけを使う。行が収まらない場合は原因を特定し、制作者が文字サイズを下げたり文言を追加したりしない。
-- テキスト枠の内余白は上下左右0。行間は次の表の倍率、段落前後は0。垂直位置は中央。ここにないフォント、色、塗り、線、配置を推測して加えない。
-- line表のsource/targetはshapeID:辺@割合。辺の割合は左上から右下へ0..1。source境界座標→waypoint→target境界座標の各隣接点を、個別の直線PowerPointコネクタとして作る。本数は点列長-1で、IDは論理ID_s1、_s2の順。矢印headは最後のsegmentのtarget側だけに付ける。sourceとtargetの箱の境界座標を保ち、自動ルーティングは使わない。Segment表の座標が描画の正本。コネクタはz=20で背景の上、文字の下。文字や無関係な内容パネルを貫通させない。
-- 本編は13枚、計600秒。出力は指定ページ1枚だけの編集可能な.pptx。PPTXへ画像化せず、写真、ロゴ、家や雲の装飾輪郭、グラデーション、影を加えない。
+**この一枚：** 手順が存在することと、必要な場面で呼ばれることを分け、イベントから同じ処理を呼ぶ経路を示す。
 
-| Style | 種別 | フォントとpt | 太さ | 文字色 | 塗り | 枠線 | 内余白（上/右/下/左、pt） | 水平/垂直 | 行間 |
-|---|---|---|---|---|---|---|---|---|---|
-| T32 | text | Meiryo UI 32 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| T40 | text | Meiryo UI 40 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| B28 | text | Meiryo UI 28 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.05 |
-| B24 | text | Meiryo UI 24 | regular | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.08 |
-| B22 | text | Meiryo UI 22 | regular | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.10 |
-| C22 | text | Meiryo UI 22 | regular | #222222 | なし | なし | 0/0/0/0 | 中央/中央 | 1.10 |
-| L20 | text | Meiryo UI 20 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| C20 | text | Meiryo UI 20 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 中央/中央 | 1.00 |
-| E24 | text | Meiryo UI 24 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 左/中央 | 1.05 |
-| N14 | text | Meiryo UI 14 | regular | #505050 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| P12 | text | Meiryo UI 12 | regular | #505050 | なし | なし | 0/0/0/0 | 右/中央 | 1.00 |
-| PANEL | rect | なし | なし | なし | #F5F6F8 | #D0D5DD 1pt | — | なし | なし |
-| WHITE | rect | なし | なし | なし | #FFFFFF | #D0D5DD 1pt | — | なし | なし |
-| BLUE | rect | なし | なし | なし | #FFFFFF | #1F5FAF 2pt | — | なし | なし |
-| BAR | rect | なし | なし | なし | #1F5FAF | なし | — | なし | なし |
+**掲載文言：**
 
-| Line style | 幅 | 色 | head | z |
-|---|---:|---|---|---:|
-| FLOW | 2pt | #1F5FAF | target側に7pt三角 | 20 |
-| REF | 1.5pt | #505050 | target側に6pt三角 | 20 |
+左は`.codex/hooks.json`の起動時部分の説明用短縮例。
+「commandは短縮表示・実行用設定ではない」と明記する。
 
-## 12｜何を見て、終わったと判断するか
+```json
+{
+  "hooks": {
+    "SessionStart": [{
+      "matcher": "^startup$",
+      "hooks": [{"type": "command",
+        "command": "…refresh_main.py",
+        "timeout": 20}]
+    }]
+  }
+}
+```
 
-**表示見出しはObject表の指定を使用。時間：40秒。**
+右は、このリポジトリに定義されている二つの呼出し経路。
 
-制作メタ（非表示）：13枚とbrief、公開main、未描画という結果と到達点を親が照合する。 口頭説明はslide-design.mdの第12枚を参照し、画面へ転載しない。
+```text
+SessionStart / startup
+  → refresh_main.py
+  → Git確認・fetch・安全条件で更新
 
-### Object表
+PreToolUse / Agent
+  → jev_preprocess_agent.py
+  → assemble-recipient.mjs
+  → 対象の入力を差し替え
+```
 
-| ID | 種別 | Style | x | y | w | h | Text（表示文字） | z |
-|---|---|---|---:|---:|---:|---:|---|---:|
-| result | rect | PANEL | 40 | 165 | 250 | 125 |  | 10 |
-| parent | rect | BLUE | 355 | 175 | 250 | 105 |  | 10 |
-| target | rect | PANEL | 670 | 165 | 250 | 125 |  | 10 |
-| git | rect | WHITE | 105 | 355 | 270 | 75 |  | 10 |
-| github | rect | WHITE | 585 | 355 | 270 | 75 |  | 10 |
-| title | text | T32 | 40 | 28 | 880 | 48 | 何を見て終わったと判断するか | 30 |
-| resultHead | text | L20 | 56 | 181 | 218 | 28 | 結果と根拠 | 30 |
-| resultBody | text | B22 | 56 | 220 | 218 | 62 | 13枚とbrief<br>URL・PPT未描画 | 30 |
-| parentHead | text | L20 | 373 | 190 | 214 | 30 | 親Astraが照合 | 30 |
-| parentBody | text | B22 | 373 | 227 | 214 | 40 | 到達点と根拠 | 30 |
-| targetHead | text | L20 | 686 | 181 | 218 | 28 | 依頼の到達点 | 30 |
-| targetBody | text | B22 | 686 | 220 | 218 | 62 | 題目・文言一致<br>必須条件の保持 | 30 |
-| gitHead | text | L20 | 121 | 365 | 238 | 25 | Git | 30 |
-| gitBody | text | B22 | 121 | 397 | 238 | 27 | 変更・差分・main | 30 |
-| githubHead | text | L20 | 601 | 365 | 238 | 25 | GitHub | 30 |
-| githubBody | text | B22 | 601 | 397 | 238 | 27 | PR・merge・公開URL | 30 |
-| page | text | P12 | 860 | 498 | 60 | 14 | 12 / 13 | 40 |
-| note | text | N14 | 40 | 470 | 790 | 25 | 公開済みとPPT実描画は別。新しい公開情報は本人判断。 | 40 |
+下部の結論：
 
-### Connector表（論理経路）
+> 呼出しはイベントから。有効化・信頼確認が前提。
+> 資料の前処理は、対象外・失敗時には元の入力を通す。
 
-| 論理ID | source | target | waypoints（pt） | segment数 | Style | z |
-|---|---|---|---|---:|---|---:|
-| resultToParent | result:right@0.5 | parent:left@0.5 | なし | 1 | FLOW | 20 |
-| targetToParent | target:left@0.5 | parent:right@0.5 | なし | 1 | FLOW | 20 |
-| gitToParent | git:top@0.5 | parent:bottom@0.3 | (240,320); (430,320) | 3 | REF | 20 |
-| githubToParent | github:top@0.5 | parent:bottom@0.7 | (720,320); (530,320) | 3 | REF | 20 |
+**図・配置：** 左に短い設定、右に上下二つの処理の流れ。
+SessionStartから11と同じPythonへつながることを強調する。
+Jev側は入口だけを示し、候補選択の詳細は16へ送る。
+JSON全文、全パス、SHA-256文字列、全例外分岐を画面へ詰め込まない。[^hooks]
 
-### Segment表（描画座標）
+**話す内容：**
 
-| 論理ID | segment ID | 始点(x,y) | 終点(x,y) | 境界固定 | Style | head | z |
-|---|---|---|---|---|---|---|---:|
-| resultToParent | resultToParent_s1 | (290,227.5) | (355,227.5) | 始点=result:right@0.5 / 終点=parent:left@0.5 | FLOW | target側7pt三角 | 20 |
-| targetToParent | targetToParent_s1 | (670,227.5) | (605,227.5) | 始点=target:left@0.5 / 終点=parent:right@0.5 | FLOW | target側7pt三角 | 20 |
-| gitToParent | gitToParent_s1 | (240,355) | (240,320) | 始点=git:top@0.5 | REF | なし | 20 |
-| gitToParent | gitToParent_s2 | (240,320) | (430,320) | 中継点 | REF | なし | 20 |
-| gitToParent | gitToParent_s3 | (430,320) | (430,280) | 終点=parent:bottom@0.3 | REF | target側6pt三角 | 20 |
-| githubToParent | githubToParent_s1 | (720,355) | (720,320) | 始点=github:top@0.5 | REF | なし | 20 |
-| githubToParent | githubToParent_s2 | (720,320) | (530,320) | 中継点 | REF | なし | 20 |
-| githubToParent | githubToParent_s3 | (530,320) | (530,280) | 終点=parent:bottom@0.7 | REF | target側6pt三角 | 20 |
+でも、手順を置くだけでは、必要な場面で必ず使われるとは限りません。
+そこで、決まったイベントから処理を呼ぶHookを使います。
+画面のSessionStartは起動時で、先ほどのPythonを直接呼ぶ定義です。
+Skillをモデルが選ぶ経路とは別です。
+別のAIへ資料を渡す直前の前処理にも、Hookの定義があります。
+ただし、有効化と信頼確認が前提で、資料の前処理は対象外や失敗時に元の入力を通します。
+置けば必ず効く、ではなく、実際に通ったかも確認が必要です。
+
+**台本外の技術注記：** 確認対象はリポジトリの`.codex/hooks.json`であり、ユーザー層・システム層を含む実機全体のHook一覧ではない。
+設定のmatcherはSessionStartが`^startup$`、PreToolUseが`^Agent$`。
+実際のcommandはGitルートを求め、スクリプトのSHA-256を照合してからPythonを実行する。
+初回・定義変更後には`/hooks`でproject layerと現在の定義をreview・trustする必要があり、現在の実機で有効・信頼済みかはこの資料更新では未確認。
+
+呼出先の実パスは、起動時が`.agents/skills/github-main-refresh/scripts/refresh_main.py`、入力前処理が`.codex/hooks/jev_preprocess_agent.py`、その先が`scripts/jev/assemble-recipient.mjs`。
+SessionStart側はstdinのイベント情報からcwdを使い、status等をadditionalContextで返す。
+手動実行では11の`--cwd`を用いる。
+Git状態に関する指示の返却と、実行を機械的に停止できることを同一視しない。
+
+Jev側スクリプトはAgent/spawn_agentを受け付けるが、設定上のmatcherと対応する実行経路の確認は別である。
+対象はJSONとして読め、family・purpose・required・supplementaryのいずれかを持つ構造化入力。
+無効化、対象外入力、assembler不在・失敗・timeout等では入力の差し替えを返さず、元の入力を通す設計である。
+これは前処理を強制する安全境界ではなく、失敗時も元入力を保持する入力書換えHook。
+資料取得後や親への全入力を、このHook一本ですべて前処理できるとは説明しない。
+実APIの利用可否、実際の通過率、受け手での利用は17の別の確認事項とする。
+
+## 確認元（ノート用）
+
+[^hooks]: homelabの[.codex/hooks.json](https://github.com/piko2510/homelab/blob/9485fc3c6e9fe61b076c45d48e55b6dc565bae0e/.codex/hooks.json)、[jev_preprocess_agent.py](https://github.com/piko2510/homelab/blob/9485fc3c6e9fe61b076c45d48e55b6dc565bae0e/.codex/hooks/jev_preprocess_agent.py)、[refresh_main.py](https://github.com/piko2510/homelab/blob/9485fc3c6e9fe61b076c45d48e55b6dc565bae0e/.agents/skills/github-main-refresh/scripts/refresh_main.py)と、OpenAI「[Hooks](https://developers.openai.com/codex/hooks/)」。イベント、matcher、直接実行、信頼確認、構造化入力の差し替えと失敗時の扱い。

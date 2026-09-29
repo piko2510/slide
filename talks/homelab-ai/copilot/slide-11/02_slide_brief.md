@@ -1,86 +1,85 @@
-# 第11枚の制作仕様
+# 第11枚の制作仕様｜v6
 
-出力：homelab_ai_11.pptx、1枚のみ、40秒のページ。
-以下の共通styleと当該ページの表だけで単独生成できる。説明文は画面に出さない。
+出力：homelab_ai_11.pptx、1枚のみ。ページ番号：11 / 18。
+同期元：talks/homelab-ai/slide-design.md、blob a1c1949f40559e04d2890862a74b4c6d944d68e0。
+以下は対象ページの本文。話す内容はノートへ収録し、画面へ転載しない。
 
-## 共通制作style
+### 11｜毎回の作業手順を、Skillにまとめる
 
-この文書は制作指示であり、スライドへ転載しない。画面に出す文字は各ページのobject表のtext種別のText欄だけを正本とする。rect種別のText空欄は無文字を意味する。<br>は明示改行であり文字列として表示しない。Unicodeの矢印文字を作らず、接続線表どおりの編集可能なPowerPointコネクタを作る。
+**時間：55秒**
 
-- キャンバス：960 × 540 pt（13.3333 × 7.5 inch、16:9）。原点は左上。1 pt = 12700 EMU、72 pt = 1 inch。
-- 背景：白 #FFFFFF。すべての文字のLatinとEast Asianフォント名をMeiryo UIへ設定する。
-- 色：本文 #222222、補足 #505050、青 #1F5FAF、薄灰 #F5F6F8、枠 #D0D5DD。
-- 外周余白：左40 pt、右40 pt、上28 pt、下28 pt。ページ番号だけはy=498..512 pt。通常のtitleはy=28..76 pt、主図はy=100..450 pt、注記はy=470..498 ptに置く。
-- オブジェクト座標はx,y,w,hの順にpt。四角の角丸は0、影なし。zが小さいものから描く。すべての文字を別のテキストボックスとし、背景の四角に文字を入れない。
-- テキストは自動縮小、自動拡張、均等割付をOFF。指定の明示改行だけを使う。行が収まらない場合は原因を特定し、制作者が文字サイズを下げたり文言を追加したりしない。
-- テキスト枠の内余白は上下左右0。行間は次の表の倍率、段落前後は0。垂直位置は中央。ここにないフォント、色、塗り、線、配置を推測して加えない。
-- line表のsource/targetはshapeID:辺@割合。辺の割合は左上から右下へ0..1。source境界座標→waypoint→target境界座標の各隣接点を、個別の直線PowerPointコネクタとして作る。本数は点列長-1で、IDは論理ID_s1、_s2の順。矢印headは最後のsegmentのtarget側だけに付ける。sourceとtargetの箱の境界座標を保ち、自動ルーティングは使わない。Segment表の座標が描画の正本。コネクタはz=20で背景の上、文字の下。文字や無関係な内容パネルを貫通させない。
-- 本編は13枚、計600秒。出力は指定ページ1枚だけの編集可能な.pptx。PPTXへ画像化せず、写真、ロゴ、家や雲の装飾輪郭、グラデーション、影を加えない。
+**この一枚：** 共通規則に続け、毎回の手順説明を減らす方法として実在するSkillを紹介する。
 
-| Style | 種別 | フォントとpt | 太さ | 文字色 | 塗り | 枠線 | 内余白（上/右/下/左、pt） | 水平/垂直 | 行間 |
-|---|---|---|---|---|---|---|---|---|---|
-| T32 | text | Meiryo UI 32 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| T40 | text | Meiryo UI 40 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| B28 | text | Meiryo UI 28 | bold | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.05 |
-| B24 | text | Meiryo UI 24 | regular | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.08 |
-| B22 | text | Meiryo UI 22 | regular | #222222 | なし | なし | 0/0/0/0 | 左/中央 | 1.10 |
-| C22 | text | Meiryo UI 22 | regular | #222222 | なし | なし | 0/0/0/0 | 中央/中央 | 1.10 |
-| L20 | text | Meiryo UI 20 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| C20 | text | Meiryo UI 20 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 中央/中央 | 1.00 |
-| E24 | text | Meiryo UI 24 | bold | #1F5FAF | なし | なし | 0/0/0/0 | 左/中央 | 1.05 |
-| N14 | text | Meiryo UI 14 | regular | #505050 | なし | なし | 0/0/0/0 | 左/中央 | 1.00 |
-| P12 | text | Meiryo UI 12 | regular | #505050 | なし | なし | 0/0/0/0 | 右/中央 | 1.00 |
-| PANEL | rect | なし | なし | なし | #F5F6F8 | #D0D5DD 1pt | — | なし | なし |
-| WHITE | rect | なし | なし | なし | #FFFFFF | #D0D5DD 1pt | — | なし | なし |
-| BLUE | rect | なし | なし | なし | #FFFFFF | #1F5FAF 2pt | — | なし | なし |
-| BAR | rect | なし | なし | なし | #1F5FAF | なし | — | なし | なし |
+**掲載文言：**
 
-| Line style | 幅 | 色 | head | z |
-|---|---:|---|---|---:|
-| FLOW | 2pt | #1F5FAF | target側に7pt三角 | 20 |
-| REF | 1.5pt | #505050 | target側に6pt三角 | 20 |
+> 作成支援：$skill-creatorに、用途・発動条件・制約を渡す
 
-## 11｜任せた担当が、どこまで進めるか
+左のフォルダは、実在する`.agents/skills/`配下の例。
 
-**表示見出しはObject表の指定を使用。時間：40秒。**
+```text
+github-main-refresh/
+├── SKILL.md
+├── agents/
+│   └── openai.yaml
+└── scripts/
+    └── refresh_main.py
+```
 
-制作メタ（非表示）：briefに旧題名が残る説明用の局所失敗で、担当の修正と戻す境界を示す。 口頭説明はslide-design.mdの第11枚を参照し、画面へ転載しない。
+右は「実物を発表用に短縮」と明記したSKILL.md。
 
-### Object表
+```markdown
+---
+name: github-main-refresh
+description: 作業前にmainを安全に最新化する。
+---
+## 手順
+- originを確認してfetchする。
+- cleanなmainを、ff可能時だけ更新。
+- dirty・作業branchは変更しない。
+## 禁止
+- reset --hard、clean、force push
+```
 
-| ID | 種別 | Style | x | y | w | h | Text（表示文字） | z |
-|---|---|---|---:|---:|---:|---:|---|---:|
-| work1 | rect | BLUE | 40 | 160 | 250 | 180 |  | 10 |
-| work2 | rect | BLUE | 355 | 160 | 250 | 180 |  | 10 |
-| work3 | rect | BLUE | 670 | 160 | 250 | 180 |  | 10 |
-| boundary | rect | PANEL | 40 | 412 | 880 | 44 |  | 10 |
-| title | text | T32 | 40 | 28 | 880 | 48 | 担当はどこまで進めるか | 30 |
-| exampleFailure | text | B22 | 40 | 96 | 880 | 35 | 更新漏れ：生成指示に旧題名が残る | 30 |
-| exampleNote | text | N14 | 40 | 134 | 880 | 20 | 説明用に再構成した局所失敗。実行記録ではない。 | 30 |
-| work1Head | text | L20 | 56 | 182 | 218 | 30 | 調べる | 30 |
-| work1Body | text | B22 | 56 | 236 | 218 | 70 | 設計書とbriefの<br>題名を照合 | 30 |
-| work2Head | text | L20 | 371 | 182 | 218 | 30 | 修正する | 30 |
-| work2Body | text | B22 | 371 | 236 | 218 | 70 | 同じ担当が<br>旧題名を更新 | 30 |
-| work3Head | text | L20 | 686 | 182 | 218 | 30 | 検証する | 30 |
-| work3Body | text | B22 | 686 | 236 | 218 | 70 | 13枚の題目を<br>もう一度確認 | 30 |
-| boundaryText | text | B22 | 58 | 417 | 844 | 34 | 新しい公開情報や外部共有は親へ返し、本人が判断 | 30 |
-| page | text | P12 | 860 | 498 | 60 | 14 | 11 / 13 | 40 |
-| roles | text | N14 | 40 | 471 | 810 | 23 | 配役：Solは通常実働、Lunaは照合、コード実装ならGrok。 | 40 |
+ファイルの横に短い役割ラベルを付ける。
 
-### Connector表（論理経路）
+> SKILL.md：選択の手掛かりと手順
+> openai.yaml：表示名・説明・既定プロンプト
+> refresh_main.py：状態判定と安全な更新
 
-| 論理ID | source | target | waypoints（pt） | segment数 | Style | z |
-|---|---|---|---|---:|---|---:|
-| work1To2 | work1:right@0.5 | work2:left@0.5 | なし | 1 | FLOW | 20 |
-| work2To3 | work2:right@0.5 | work3:left@0.5 | なし | 1 | FLOW | 20 |
-| recheck | work3:bottom@0.5 | work2:bottom@0.5 | (795,390); (480,390) | 3 | REF | 20 |
+下部の結論：
 
-### Segment表（描画座標）
+> 手順はMarkdown。定型処理はPython。同じPythonをHookでも使う。
 
-| 論理ID | segment ID | 始点(x,y) | 終点(x,y) | 境界固定 | Style | head | z |
-|---|---|---|---|---|---|---|---:|
-| work1To2 | work1To2_s1 | (290,250) | (355,250) | 始点=work1:right@0.5 / 終点=work2:left@0.5 | FLOW | target側7pt三角 | 20 |
-| work2To3 | work2To3_s1 | (605,250) | (670,250) | 始点=work2:right@0.5 / 終点=work3:left@0.5 | FLOW | target側7pt三角 | 20 |
-| recheck | recheck_s1 | (795,340) | (795,390) | 始点=work3:bottom@0.5 | REF | なし | 20 |
-| recheck | recheck_s2 | (795,390) | (480,390) | 中継点 | REF | なし | 20 |
-| recheck | recheck_s3 | (480,390) | (480,340) | 終点=work2:bottom@0.5 | REF | target側6pt三角 | 20 |
+**図・配置：** 左のフォルダ構成と右のSKILL.mdを主役にする。
+役割ラベルはファイルの近くに置き、別の大きな説明表を重ねない。
+必要なら`.agents/skills/`はフォルダ図の上の共通パスとして分離し、パスを途中で不自然に折り返さない。
+存在しないreferencesやassetsを、実物の構成として足さない。[^skill] [^refresh]
+
+**話す内容：**
+
+次に、毎回の作業手順を説明しなくてよいよう、仕事別にまとめるのがSkillです。
+作成を助けるSkill Creatorには、用途、使う場面、禁止事項を伝えます。
+実物の例は、mainを安全に最新化するgithub-main-refreshです。
+フォルダには、手順のSKILL.md、表示情報のopenai.yaml、処理本体のPythonがあります。
+nameとdescriptionが選択の手掛かりで、使う時に本文を読みます。
+この例ではfetchし、変更のないmainをfast-forwardできる場合だけ更新します。
+作業中の変更を消して、無理に合わせることはしません。
+このPythonを、次のHookからも呼びます。
+
+**台本外の技術注記：** Skill Creatorは作成支援であり、Skillの実行時に必ず通る仲介処理ではない。
+この代表Skillを選ぶ理由は、エンジニアが用途を理解しやすく、次のHookと同じ処理本体を追えるため。
+Skillの実物と追加・更新の履歴、validator通過の記録は確認したが、このSkillをCreatorで生成した当時の呼出しログは未確認。
+そのため、上段は公式の作成方法、下段は実物の構造として説明し、生成ログ・生成時の会話を捏造しない。
+
+SKILL.mdは必須で、補助スクリプトやagents/openai.yamlはこの例にある構成であり、すべてのSkillの必須ファイルではない。
+実物はmerge・rebase等のGit操作中にはfetchもしない。
+dirty、detached HEAD、作業branch、ahead、divergedではcheckoutを変更しない。
+変更しないcheckoutで続けて編集する場合の隔離worktree作成はSkillの後続手順であり、refresh_main.py自体が自動作成するとは説明しない。
+手動実行例は`python3 .agents/skills/github-main-refresh/scripts/refresh_main.py --cwd "$PWD"`。
+結果のstatusとorigin_mainを確認してから編集へ進む。
+PR #1263の過去の検証記録やPR #1389の手順修正は参考根拠であり、今回テストを再実行したという意味ではない。
+
+## 確認元（ノート用）
+
+[^skill]: OpenAI「[Build skills](https://developers.openai.com/codex/skills/)」。Skill Creator、name/description、必要時の本文読み込み、必須ファイルと任意の補助ファイル。
+[^refresh]: homelabの[github-main-refresh](https://github.com/piko2510/homelab/tree/9485fc3c6e9fe61b076c45d48e55b6dc565bae0e/.agents/skills/github-main-refresh)にあるSKILL.md、agents/openai.yaml、scripts/refresh_main.py。[PR #1263](https://github.com/piko2510/homelab/pull/1263)は追加と過去の検証記録、[PR #1389](https://github.com/piko2510/homelab/pull/1389)は編集時だけworktreeへ進む手順の修正。
