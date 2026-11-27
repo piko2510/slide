@@ -23,3 +23,11 @@ PowerPoint（PPTX）の原本はローカルにあり、このリポジトリに
 - 配置は要素の関係が選ぶ。対比は左右2面、仕事の順序は横の流れ、場面と渡す先は対応表。均等なカードの羅列はしない。
 - 残す規律：1枚1メッセージ。見出しは主張を言い切る文にする。主張と根拠は同じページに置く。無い数値は埋めない（数値は65k実測のみ）。文字の階層は大きさの対比で作り、固定pt表は置かない。本文の下限は18ptで、縮めて収めない。角丸は小さなものだけ可、影なし。
 - 経路：ネイティブな編集可能図形のPPTX（python-pptx、フォントは Meiryo UI）。発表者ノートは全ページに付け、【話す内容】と【技術注記】に分ける。
+
+## Copilot生成セット
+
+会社のCopilotで各デッキを生成するためのセットを [copilot/](copilot/) に置いています。
+
+- デザイン指示（3本共通）：[copilot/design.md](copilot/design.md)
+- 台本：[copilot/script-model.md](copilot/script-model.md)（モデル編・全9枚）／ [copilot/script-skill.md](copilot/script-skill.md)（スキル編・全10枚）／ [copilot/script-chat-agent.md](copilot/script-chat-agent.md)（Chat型とAIエージェント編・全7枚）
+- 使い方：[copilot/README.md](copilot/README.md)
